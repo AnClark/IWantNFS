@@ -1,6 +1,21 @@
 @echo off
 
 echo.
+echo Checking permissions...
+echo.
+
+net session >NUL 2>NUL
+if ERRORLEVEL 1 (
+echo.
+echo FATAL: You must run this script with administrator permission.
+echo.
+
+goto exit
+)
+
+cls
+
+echo.
 echo Checking if your Windows supports NFS...
 echo.
 
